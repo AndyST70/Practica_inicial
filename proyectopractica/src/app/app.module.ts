@@ -12,6 +12,8 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { EditarComponent } from './vistas/editar/editar.component';
+import { ArchivosService } from './services/archivos.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +24,12 @@ import { EditarComponent } from './vistas/editar/editar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ArchivosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

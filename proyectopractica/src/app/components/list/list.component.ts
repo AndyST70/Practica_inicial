@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ArchivosService} from"../../services/archivos.service";
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private archivosService: ArchivosService) { 
 
-  ngOnInit(): void {
+  }
+
+  ngOnInit(): void { 
+     this.archivosService.getCursos().subscribe(
+       res => console.log(res),
+       err => console.error(err)
+     )
   }
 
 }
