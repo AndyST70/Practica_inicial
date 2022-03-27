@@ -7,13 +7,18 @@ import { FormComponent } from './components/form/form.component';
 import { ListComponent } from './components/list/list.component';
 import {} from './app.component';
 import { HolaMundoComponent } from './hola-mundo/hola-mundo.component';
+import { HeaderComponent } from './plantillas/header/header.component';
+import { FooterComponent } from './plantillas/footer/footer.component';
+import { LoginComponent } from './vistas/login/login.component';
+import { DashboardComponent } from './vistas/dashboard/dashboard.component';
+import { EditarComponent } from './vistas/editar/editar.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     FormComponent,
     ListComponent, 
-    HolaMundoComponent
+    HolaMundoComponent, HeaderComponent, FooterComponent, LoginComponent, DashboardComponent, EditarComponent
   ],
   imports: [
     BrowserModule,
