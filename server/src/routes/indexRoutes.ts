@@ -1,5 +1,5 @@
 import { response, Router } from "express"; 'express'; //Importar router, metodo que devuelve un objeto con las rutas
-
+import {IndexController} from '../controllers/indexController';
 class indexRoutes{
     public router: Router = Router(); //Almacena un objeto que devuelve el método router
 
@@ -8,7 +8,7 @@ class indexRoutes{
     }
 
     config():void{
-        this.router.get('/', (req,res) => res.send('Holi'), ) //Ruta inicial de la aplicación
+        this.router.get('/',IndexController.index) //Ruta inicial de la aplicación
     }
 }
 

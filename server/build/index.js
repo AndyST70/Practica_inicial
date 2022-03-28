@@ -18,7 +18,7 @@ class Server {
         this.app.set('port', process.env.PORT || 3000); //Asignacion de puerto, si hay uno predeterminado lo asigna, si no entonces se va la puerto 3000
         this.app.use((0, morgan_1.default)('dev')); //Con estos modulos se puede visualizar las peticiones del servidor
         this.app.use((0, cors_1.default)()); //permite que los recursos restringidos de una pagina web se soliciten desde otro sitio fuera del dominio
-        this.app.use(express_1.default.json()); //Con esta configuracion se entienden los formatos json
+        this.app.use(express_1.default.json()); //Esto devuelve un objeto con los datos enviados en formato json
         this.app.use(express_1.default.urlencoded({ extended: false })); //En caso de acceder a formularios hmtl
     }
     routes() {
