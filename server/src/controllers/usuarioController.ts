@@ -17,12 +17,25 @@ class usuarioController2 {
         //console.log(req.body); El método .body tendrá los valores enviados a traves de Angular
         const result = db.query('INSERT INTO usuario set ?', [req.body]);
         console.log(result)
-        res.json({message: 'user saved'});
+        res.json({message: 'usuario saved'});
     }
 
-    public eliminarUsuario(req:Request,res:Response){
-        res.json({text: 'prueba de eliminación' + req.params.carnet});
-    }
+    public async login(req: Request, res: Response){
+        const registro = req.body.Registro_Academico;
+        const pass = req.body.password;
+
+        if(registro && pass){
+            //Verifica el usuario
+            db.query('SELECT * FROM usuario WHERE Registro_Academico = ?', [registro], function(err, result, fields) {
+                if (err) throw err;
+                if (result.length>0 && result[0].password == pass){  //Muestra error pero la linea es funcional
+                    res.json({text:'Credenciales correctas'});
+                }
+                else{res.json({text:'Credenciales incorrectas'})}
+            }); 
+        }
+        else{res.json({text:'No hay datos'})};
+    } 
 
     public actualizarUsuario(req:Request,res:Response){
         res.json({text: 'prueba de actualización' + req.params.carnet});

@@ -31,11 +31,31 @@ class usuarioController2 {
             //console.log(req.body); El método .body tendrá los valores enviados a traves de Angular
             const result = database_2.default.query('INSERT INTO usuario set ?', [req.body]);
             console.log(result);
-            res.json({ message: 'user saved' });
+            res.json({ message: 'usuario saved' });
         });
     }
-    eliminarUsuario(req, res) {
-        res.json({ text: 'prueba de eliminación' + req.params.carnet });
+    login(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const registro = req.body.Registro_Academico;
+            const pass = req.body.password;
+            if (registro && pass) {
+                //Verifica el usuario
+                database_2.default.query('SELECT * FROM usuario WHERE Registro_Academico = ?', [registro], function (err, result, fields) {
+                    if (err)
+                        throw err;
+                    if (result.length > 0 && result[0].password == pass) { //Muestra error pero la linea es funcional
+                        res.json({ text: 'Credenciales correctas' });
+                    }
+                    else {
+                        res.json({ text: 'Credenciales incorrectas' });
+                    }
+                });
+            }
+            else {
+                res.json({ text: 'No hay datos' });
+            }
+            ;
+        });
     }
     actualizarUsuario(req, res) {
         res.json({ text: 'prueba de actualización' + req.params.carnet });

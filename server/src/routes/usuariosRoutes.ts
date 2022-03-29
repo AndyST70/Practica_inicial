@@ -10,9 +10,8 @@ class UsuariosRoutes{
 
     config():void{
         this.router.get('/',UsuarioController.lista); //Ruta que devuelve el listado de usuarios
-        this.router.get('/:carnet',UsuarioController.verUsuario); //Ruta que devuelve un solo usuario
+        this.router.post('/login',UsuarioController.login); //Ruta para el login
         this.router.post('/',UsuarioController.crearUsuario); //Ruta que envía el método post para inserción de datos
-        this.router.delete('/:carnet',UsuarioController.eliminarUsuario); //Ruta para eliminar usuario
         this.router.put('/:carnet',UsuarioController.actualizarUsuario); //Ruta para actualizar usuario
     }
 }
