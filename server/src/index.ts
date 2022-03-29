@@ -1,6 +1,7 @@
 import express, { Application } from 'express'; //Dependencias para desarrollo
 import indexRoutes from './routes/indexRoutes';
 import usuariosRoutes from './routes/usuariosRoutes';
+import publicacionesRoutes from './routes/publicacionesRoutes';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -24,7 +25,8 @@ class Server {
 
     routes():void{  //Guarda las rutas
         this.app.use(indexRoutes);
-        this.app.use('/usuarios',usuariosRoutes); 
+        this.app.use('/usuarios',usuariosRoutes);
+        this.app.use('/publicacionesLista',publicacionesRoutes); 
     }
 
     start():void{ //Inicia el servidor
