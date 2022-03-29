@@ -1,6 +1,6 @@
 export interface Curso {
  id?: number;
- title?: string;
+ curso?: string;
  description?: string;
  created_at?: Date;
 }

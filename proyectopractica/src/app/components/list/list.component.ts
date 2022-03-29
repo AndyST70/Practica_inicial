@@ -6,16 +6,16 @@ import { ArchivosService} from"../../services/archivos.service";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
+  cursos: any = [];
   constructor(private archivosService: ArchivosService) { 
 
   }
 
   ngOnInit(): void { 
      this.archivosService.getCursos().subscribe(
-       res => console.log(res),
+       res => {this.cursos = res;},
        err => console.error(err)
-     )
+     );
   }
 
 }
