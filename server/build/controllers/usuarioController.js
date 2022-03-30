@@ -45,11 +45,19 @@ class usuarioController2 {
                         throw err;
                     if (result.length > 0 && result[0].password == pass) { //Muestra error pero la linea es funcional
                         res.json({ text: 'Credenciales correctas' });
+<<<<<<< HEAD
                         console.log("ok");
                     }
                     else {
                         res.json({ text: 'Credenciales incorrectas' });
                         console.log("error hermano");
+=======
+                        console.log('OK');
+                    }
+                    else {
+                        res.json({ text: 'Credenciales incorrectas' });
+                        console.log('Not valid');
+>>>>>>> 8a380b50f06a9fdcc5e93e1c64da5773899e403e
                     }
                     ;
                 });

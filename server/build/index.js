@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express")); //Dependencias para desarrollo
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
 const usuariosRoutes_1 = __importDefault(require("./routes/usuariosRoutes"));
+const publicacionesRoutes_1 = __importDefault(require("./routes/publicacionesRoutes"));
+const asignacionCursosRoutes_1 = __importDefault(require("./routes/asignacionCursosRoutes"));
 const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 class Server {
@@ -24,6 +26,8 @@ class Server {
     routes() {
         this.app.use(indexRoutes_1.default);
         this.app.use('/usuarios', usuariosRoutes_1.default);
+        this.app.use('/publicacionesLista', publicacionesRoutes_1.default);
+        this.app.use('/cursos', asignacionCursosRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {
