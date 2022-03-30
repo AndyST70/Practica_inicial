@@ -1,4 +1,4 @@
 export interface LoginI{
-    registro: string;
+    Registro_Academico: string;
     password: string;
 }

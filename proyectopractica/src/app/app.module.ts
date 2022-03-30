@@ -12,6 +12,7 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 import { ArchivosService } from './services/archivos.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     HolaMundoComponent, 
     HeaderComponent, 
     FooterComponent,
-    routingComponents //llamamos nuestras rutas de crood y login
+    routingComponents, //llamamos nuestras rutas de crood y login
   
   ],
   imports: [

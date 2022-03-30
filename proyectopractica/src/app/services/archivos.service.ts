@@ -4,14 +4,21 @@ import {Curso} from "../models/Curso"
 import { Observable } from 'rxjs';
 import {LoginI} from"../models/login.interface";
 import {ResponseI} from "../models/response.interface";
-
+import { observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ArchivosService {
-  Api_Uri = "http://localhost:4200/api";
+  Api_Uri = "http://localhost:3000/";
   constructor(private http: HttpClient) {   }
-
+  // logynByEmail(form: LoginI):Observable<ResponseI>{
+  //   let direccion = this.url +  
+  //   return
+  // }
+  loginByEmail(form: LoginI): Observable<ResponseI>{
+    let direccion = this.Api_Uri + "usuarios/login"
+    return this.http.post<ResponseI>(direccion, form);
+  }
   getCursos(){
     return this.http.get('${this.Api_Uri}/archivos');
   }
@@ -25,7 +32,8 @@ export class ArchivosService {
     return this.http.delete('${this.Api_Uri}/archivos/${id}');
   
   }
-  updateCurso(id: string, updatedCurso: Curso): Observable <Curso>{
-    return this.http.put('${this.Api_Uri}/archivos/${id}', updatedCurso);
+  nuevoUsuario(form: Curso): Observable<ResponseI> {
+    let direccion = this.Api_Uri +""
+    return this.http.post<ResponseI>(direccion, form)
   }
 }

@@ -23,15 +23,18 @@ class usuarioController2 {
     public async login(req: Request, res: Response){
         const registro = req.body.Registro_Academico;
         const pass = req.body.password;
-
+        
         if(registro && pass){
             //Verifica el usuario
             db.query('SELECT * FROM usuario WHERE Registro_Academico = ?', [registro], function(err, result, fields) {
                 if (err) throw err;
                 if (result.length>0 && result[0].password == pass){  //Muestra error pero la linea es funcional
                     res.json({text:'Credenciales correctas'});
+                    console.log("ok");
                 }
-                else{res.json({text:'Credenciales incorrectas'})}
+                else{res.json({text:'Credenciales incorrectas'});
+                    console.log("error hermano");
+                };
             }); 
         }
         else{res.json({text:'No hay datos'})};
