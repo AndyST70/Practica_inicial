@@ -42,7 +42,9 @@ class usuarioController2 {
     } 
 
     public actualizarUsuario(req:Request,res:Response){
-        res.json({text: 'prueba de actualización' + req.params.carnet});
+            const {Registro_Academico} = req.params;
+            db.query('UPDATE  usuario SET ? WHERE Registro_Academico = ?', [req.body, Registro_Academico]);
+            res.json({message: 'user UPDATE '});
     }
 
     public getDatos(req:Request,res:Response){

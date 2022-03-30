@@ -61,7 +61,9 @@ class usuarioController2 {
         });
     }
     actualizarUsuario(req, res) {
-        res.json({ text: 'prueba de actualización' + req.params.carnet });
+        const { Registro_Academico } = req.params;
+        database_2.default.query('UPDATE  usuario SET ? WHERE Registro_Academico = ?', [req.body, Registro_Academico]);
+        res.json({ message: 'user UPDATE ' });
     }
     getDatos(req, res) {
         const { Registro_Academico } = req.params;
