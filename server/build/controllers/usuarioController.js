@@ -63,8 +63,13 @@ class usuarioController2 {
     actualizarUsuario(req, res) {
         res.json({ text: 'prueba de actualización' + req.params.carnet });
     }
-    verUsuario(req, res) {
-        res.json({ text: 'ver el usuario ' + req.params.carnet });
+    getDatos(req, res) {
+        const { Registro_Academico } = req.params;
+        database_2.default.query('SELECT * FROM usuario WHERE Registro_Academico = ?', [Registro_Academico], function (err, result, fields) {
+            if (err)
+                throw err;
+            res.json({ Registro_Academico: result[0].Registro_Academico, nombres: result[0].nombres, apellidos: result[0].apellidos, password: result[0].password, correo: result[0].correo }); //Muestra error pero la línea es funcional
+        });
     }
 }
 exports.UsuarioController = new usuarioController2();
